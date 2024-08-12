@@ -2,6 +2,7 @@ package model.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 public class Seller implements Serializable {
@@ -11,20 +12,20 @@ public class Seller implements Serializable {
     private int id;
     private String name;
     private String email;
-    private LocalDate birthDate;
-    private Double Salary;
+    private Date birthDate;
+    private Double baseSalary;
 
     private Department department;
 
     public Seller() {
     }
 
-    public Seller(int id, String name, String email, LocalDate birthDate, Double salary, Department department) {
+    public Seller(int id, String name, String email, Date birthDate, Double baseSalary, Department department) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.birthDate = birthDate;
-        Salary = salary;
+        this.baseSalary = baseSalary;
         this.department = department;
     }
 
@@ -52,20 +53,20 @@ public class Seller implements Serializable {
         this.email = email;
     }
 
-    public LocalDate getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
-    public Double getSalary() {
-        return Salary;
+    public Double getBaseSalary() {
+        return baseSalary;
     }
 
-    public void setSalary(Double salary) {
-        Salary = salary;
+    public void setBaseSalary(Double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
     public Department getDepartment() {
@@ -96,7 +97,7 @@ public class Seller implements Serializable {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", birthDate=" + birthDate +
-                ", Salary=" + Salary +
+                ", baseSalary=" + baseSalary +
                 ", department=" + department +
                 '}';
     }
