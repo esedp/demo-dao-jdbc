@@ -5,11 +5,16 @@ import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
 public class Main {
     public static void main(String[] args) {
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
@@ -29,6 +34,11 @@ public class Main {
         for (Seller obj : list) {
             System.out.println(obj);
         }
+
+        System.out.println("\n=== TEST 2: seller Insert ===");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", LocalDate.parse("14/07/1985",dtf), 4000.0, department);
+        sellerDao.insert(newSeller);
+        System.out.println("Inserted! new id = " + newSeller.getId());
 
     }
 }

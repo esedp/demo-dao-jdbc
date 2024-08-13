@@ -11,7 +11,7 @@ public class Seller implements Serializable {
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    private int id;
+    private Integer id;
     private String name;
     private String email;
     private LocalDate birthDate;
@@ -22,7 +22,7 @@ public class Seller implements Serializable {
     public Seller() {
     }
 
-    public Seller(int id, String name, String email, LocalDate birthDate, Double baseSalary, Department department) {
+    public Seller(Integer id, String name, String email, LocalDate birthDate, Double baseSalary, Department department) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -35,7 +35,7 @@ public class Seller implements Serializable {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
