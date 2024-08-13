@@ -29,16 +29,22 @@ public class Main {
             System.out.println(obj);
         }
 
-        System.out.println("\n=== TEST 2: seller findAll ===");
+        System.out.println("\n=== TEST 3: seller findAll ===");
         list = sellerDao.findAll();
         for (Seller obj : list) {
             System.out.println(obj);
         }
 
-        System.out.println("\n=== TEST 2: seller Insert ===");
+        System.out.println("\n=== TEST 4: seller Insert ===");
         Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", LocalDate.parse("14/07/1985",dtf), 4000.0, department);
         sellerDao.insert(newSeller);
         System.out.println("Inserted! new id = " + newSeller.getId());
+
+        System.out.println("\n=== TEST 5: seller Update ===");
+        seller = sellerDao.findById(1);
+        seller.setName("Martha Waine");
+        sellerDao.update(seller);
+        System.out.println("Update completed");
 
     }
 }
